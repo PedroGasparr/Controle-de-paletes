@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <div class="login-box">
+            <h1>Login</h1>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required>
+                </div>
+                
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+            
+            <div class="divider">
+                <span>ou</span>
+            </div>
+            
+            <button id="google-login" class="btn-google">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo">
+                Entrar com Google
+            </button>
+            
+            <p class="signup-link">Não tem uma conta? <a href="#" id="show-signup">Cadastre-se</a></p>
+        </div>
+    </div>
+    
+    <div class="container hidden" id="signup-container">
+        <div class="signup-box">
+            <h1>Cadastro</h1>
+            
+            <form id="signup-form">
+                <div class="input-group">
+                    <label for="signup-email">E-mail</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="signup-password">Senha</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="confirm-password">Confirmar Senha</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                
+                <button type="submit" class="btn-signup">Cadastrar</button>
+            </form>
+            
+            <p class="login-link">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
+        </div>
+    </div>
+    
+    <div class="container hidden" id="unit-selection">
+        <div class="unit-box">
+            <h1>Selecione sua Unidade</h1>
+            
+            <div class="unit-options" id="unit-options">
+                <!-- Opções serão carregadas dinamicamente -->
+            </div>
+            
+            <button id="confirm-unit" class="btn-confirm" disabled>Confirmar</button>
+        </div>
+    </div>
+    
+    <div id="message-box" class="message-box hidden"></div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
