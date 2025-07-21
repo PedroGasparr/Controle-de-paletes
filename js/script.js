@@ -110,8 +110,8 @@ auth.onAuthStateChanged(user => {
             .then(snapshot => {
                 const userData = snapshot.val();
                 if (userData && userData.unit) {
-                    // Já tem unidade, redirecionar para home
-                    window.location.href = 'src/home.html';
+                    // Já tem unidade, redirecionar para dashboard
+                    window.location.href = 'src/dashboard.html';
                 } else {
                     // Precisa selecionar unidade
                     showScreen('unit');
@@ -194,7 +194,7 @@ confirmUnitBtn.addEventListener('click', () => {
         createdAt: firebase.database.ServerValue.TIMESTAMP
     })
     .then(() => {
-        window.location.href = 'src/home.html';
+        window.location.href = 'src/dashboard.html';
     })
     .catch(error => {
         showMessage("Erro ao salvar unidade: " + error.message, true);
