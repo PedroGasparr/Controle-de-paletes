@@ -107,6 +107,8 @@ function setupEventListeners() {
                 window.location.href = 'home.html';
             } else if (sectionId === 'Retrabalhos') {
                 window.location.href = '../src/Retrabalhos.html';
+            } else if (sectionId === 'Custos') {
+                window.location.href = '../src/custos.html';
             }
         });
     });

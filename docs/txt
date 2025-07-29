@@ -1,0 +1,43 @@
+só que custo unitario tem que vir do banco de dados 
+
+let custosUnitarios = {
+        madeirite: 4,
+        chapatex: 4,
+        paleteComum: 2,
+        slipSheet: 2
+    };
+
+https://ritmo-44c20-default-rtdb.firebaseio.com/
+custos
+maracanau_ce
+chapatex
+:
+2
+madeirite
+:
+2
+paleteComum
+:
+2
+slipSheet
+:
+2
+updatedAt
+:
+"2025-07-24T12:16:36.762Z"
+teste_teste
+chapatex
+:
+6.5
+madeirite
+:
+5.5
+paleteComum
+:
+7.5
+slipSheet
+:
+8.5
+updatedAt
+:
+"2025-07-23T16:52:44.997Z"

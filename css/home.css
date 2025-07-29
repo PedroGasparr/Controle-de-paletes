@@ -28,6 +28,334 @@ body {
     line-height: 1.6;
 }
 
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .content-header h2 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .header-info {
+            display: flex;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        
+        .info-item i {
+            margin-right: 8px;
+            color: #4361ee;
+        }
+        
+        .filters-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .filters-card h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .period-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .period-btn {
+            padding: 8px 15px;
+            background: #f0f2f5;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .period-btn:hover {
+            background: #e0e3e7;
+        }
+        
+        .period-btn.active {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .custom-period {
+            margin-top: 15px;
+        }
+        
+        .date-range {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 250px;
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .filter-row .filter-group {
+            flex: 1;
+        }
+        
+        select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn.primary {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .btn.primary:hover {
+            background: #3a56d4;
+        }
+        
+        .btn.secondary {
+            background: #f0f2f5;
+            color: #333;
+        }
+        
+        .btn.secondary:hover {
+            background: #e0e3e7;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid #4361ee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .stat-card.total {
+            border-left-color: #4361ee;
+        }
+        
+        .stat-card.added {
+            border-left-color: #4cc9f0;
+        }
+        
+        .stat-card.damaged {
+            border-left-color: #f72585;
+        }
+        
+        .stat-card.rework {
+            border-left-color: #4895ef;
+        }
+        
+        .stat-card.loss-cost {
+            border-left-color: #f72585;
+        }
+        
+        .stat-card.saved-cost {
+            border-left-color: #4cc9f0;
+        }
+        
+        .stat-card.definitive-loss {
+            border-left-color: #ff6d00;
+        }
+        
+        .stat-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #555;
+        }
+        
+        .stat-info {
+            flex: 1;
+        }
+        
+        .stat-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .stat-info span {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .stat-detail {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .charts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .chart-header h3 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .chart-legend {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        
+        .legend-color.added {
+            background: #4cc9f0;
+        }
+        
+        .legend-color.damaged {
+            background: #f72585;
+        }
+        
+        .legend-color.rework {
+            background: #4895ef;
+        }
+        
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        
+        .table-container h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .summary-table th,
+        .summary-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-table th {
+            background: #f5f7fa;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .summary-table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .summary-table tfoot tr {
+            background: #f5f7fa;
+            font-weight: 500;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
 .app-container {
     display: flex;
     min-height: 100vh;

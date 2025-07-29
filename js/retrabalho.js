@@ -180,6 +180,8 @@
                         window.location.href = 'home.html';
                     } else if (sectionId === 'historico') {
                         window.location.href = 'historico.html';
+                    } else if (sectionId === 'Custos') {
+                        window.location.href = '../src/custos.html';
                     }
                 });
             });

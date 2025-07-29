@@ -63,7 +63,9 @@ function controlevisibilidade() {
         avariaFields.classList.remove('hidden');
     } else if (selecao === 'retrabalho') {
         reworkFields.classList.remove('hidden');
-    }
+    } else if (selecao === 'Custos') {
+                window.location.href = '../src/custos.html';
+            }
 }
 
 // Initialize the App

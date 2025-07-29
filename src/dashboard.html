@@ -11,7 +11,6 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <i class="fas fa-pallet"></i>
@@ -42,6 +41,10 @@
                         <i class="fas fa-layer-group"></i>
                         <span>Retrabalhos</span>
                     </li>
+                    <li data-section="Custos">
+                        <i class="fas fa-money-bill-1-wave"></i>
+                        <span>Custos</span>
+                    </li>
                     <li data-section="historico">
                         <i class="fas fa-history"></i>
                         <span>Histórico</span>
@@ -55,7 +58,6 @@
             </button>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
             <header class="content-header">
                 <h2 id="section-title">Dashboard</h2>
@@ -71,7 +73,6 @@
                 </div>
             </header>
 
-            <!-- Dashboard Section -->
             <section id="dashboard-section" class="content-section">
                 <div class="filters-card">
                     <h3>Filtros</h3>
@@ -108,6 +109,7 @@
                                 <option value="madeirite">Madeirite</option>
                                 <option value="chapatex">Chapatex</option>
                                 <option value="palete">Palete</option>
+                                <option value="slip_sheet">Slip Sheet</option>
                             </select>
                         </div>
                     </div>
@@ -122,7 +124,6 @@
                     </div>
                 </div>
                 
-                <!-- Stats Cards -->
                 <div class="stats-grid">
                     <div class="stat-card total">
                         <div class="stat-icon">
@@ -142,7 +143,7 @@
                             <h4>Adicionados</h4>
                             <span id="total-adicionados">0</span>
                             <div class="stat-detail">
-                                <span id="added-detail">0M / 0C / 0P</span>
+                                <span id="added-detail">0M / 0C / 0P / 0S</span>
                             </div>
                         </div>
                     </div>
@@ -172,9 +173,47 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="stat-card loss-cost">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Custo Avarias</h4>
+                            <span id="total-custo-avarias">R$ 0,00</span>
+                            <div class="stat-detail">
+                                <span id="custo-avaria-detail">R$ 0,00M / R$ 0,00C / R$ 0,00P / R$ 0,00S</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card saved-cost">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Economia Retrabalho</h4>
+                            <span id="total-economia-retrabalho">R$ 0,00</span>
+                            <div class="stat-detail">
+                                <span id="economia-detail">R$ 0,00M / R$ 0,00C / R$ 0,00P / R$ 0,00S</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card definitive-loss">
+                        <div class="stat-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Perdas Definitivas</h4>
+                            <span id="total-perdas-definitivas">0</span>
+                            <div class="stat-detail">
+                                <span id="perdas-definitivas-cost">R$ 0,00</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Charts -->
                 <div class="charts-container">
                     <div class="chart-card">
                         <div class="chart-header">
@@ -219,7 +258,6 @@
                     </div>
                 </div>
                 
-                <!-- Summary Table -->
                 <div class="table-container">
                     <h3>Resumo por Tipo</h3>
                     <table class="summary-table">
@@ -232,6 +270,10 @@
                                 <th>% Avarias</th>
                                 <th>Retrabalhos</th>
                                 <th>% Retrabalhos</th>
+                                <th>Custo Avarias</th>
+                                <th>Economia Retrab.</th>
+                                <th>Perdas Definitivas</th>
+                                <th>Custo Perdas</th>
                             </tr>
                         </thead>
                         <tbody id="summary-body">
@@ -243,6 +285,10 @@
                                 <td>0%</td>
                                 <td>0</td>
                                 <td>0%</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>0</td>
+                                <td>R$ 0,00</td>
                             </tr>
                             <tr>
                                 <td>Chapatex</td>
@@ -252,6 +298,10 @@
                                 <td>0%</td>
                                 <td>0</td>
                                 <td>0%</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>0</td>
+                                <td>R$ 0,00</td>
                             </tr>
                             <tr>
                                 <td>Palete</td>
@@ -261,6 +311,23 @@
                                 <td>0%</td>
                                 <td>0</td>
                                 <td>0%</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>0</td>
+                                <td>R$ 0,00</td>
+                            </tr>
+                            <tr>
+                                <td>Slip Sheet</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0%</td>
+                                <td>0</td>
+                                <td>0%</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>0</td>
+                                <td>R$ 0,00</td>
                             </tr>
                         </tbody>
                         <tfoot>
@@ -272,6 +339,10 @@
                                 <td>0%</td>
                                 <td>0</td>
                                 <td>0%</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>0</td>
+                                <td>R$ 0,00</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -280,19 +351,12 @@
         </main>
     </div>
 
-    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
-    
-    <!-- Dashboard Script -->
     <script src="../js/dashboard.js"></script>
 </body>
 </html>
