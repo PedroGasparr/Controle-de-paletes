@@ -400,55 +400,62 @@
             perdasDefinitivas: 0,
             custoPerdasDefinitivas: 0,
             tipos: {
-                madeirite: { 
-                    adicionados: 0, 
-                    avarias: 0, 
-                    retrabalhos: 0,
-                    custoAvarias: 0,
-                    economiaRetrabalho: 0,
-                    perdasDefinitivas: 0,
-                    custoPerdasDefinitivas: 0
-                },
-                chapatex: { 
-                    adicionados: 0, 
-                    avarias: 0, 
-                    retrabalhos: 0,
-                    custoAvarias: 0,
-                    economiaRetrabalho: 0,
-                    perdasDefinitivas: 0,
-                    custoPerdasDefinitivas: 0
-                },
-                palete: { 
-                    adicionados: 0, 
-                    avarias: 0, 
-                    retrabalhos: 0,
-                    custoAvarias: 0,
-                    economiaRetrabalho: 0,
-                    perdasDefinitivas: 0,
-                    custoPerdasDefinitivas: 0
-                },
-                slip_sheet: { 
-                    adicionados: 0, 
-                    avarias: 0, 
-                    retrabalhos: 0,
-                    custoAvarias: 0,
-                    economiaRetrabalho: 0,
-                    perdasDefinitivas: 0,
-                    custoPerdasDefinitivas: 0
-                }
+            madeirite: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            },
+            chapatex: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            },
+            palete: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            },
+            slip_sheet: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            }
             },
             turnos: {
-                A: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                B: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                C: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                D: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                E: { adicionados: 0, avarias: 0, retrabalhos: 0 }
+            A: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            B: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            C: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            D: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            E: { adicionados: 0, avarias: 0, retrabalhos: 0 }
             },
             motivos: {
-                tempo: 0,
-                empilhadeira: 0,
-                manuseio: 0,
-                outro: 0
+            tempo: 0,
+            empilhadeira: 0,
+            empilhadeira_guizilim: 0,
+            manuseio_ajudante: 0,
+            estoque_avariado: 0,
+            fabrica_avariada: 0,
+            manuseio: 0,
+            palete_pregos: 0,
+            garra_incorreta: 0,
+            armazenagem_incorreta: 0,
+            outro: 0
             },
             dailyData: {}
         };
@@ -731,25 +738,56 @@
         charts.damage = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Pelo tempo', 'Empilhadeira', 'Manuseio', 'Outros'],
-                datasets: [{
-                    data: [motivos.tempo, motivos.empilhadeira, motivos.manuseio, motivos.outro],
-                    backgroundColor: [
-                        '#4361ee',
-                        '#3f37c9',
-                        '#4895ef',
-                        '#4cc9f0'
-                    ],
-                    borderWidth: 1
-                }]
+            labels: [
+                'Danificado pelo tempo',
+                'Danificado por empilhadeira',
+                'Danificado por empilhadeira Guizilim',
+                'Manuseio do Ajudante',
+                'Recebido do Estoque Avariado',
+                'Recebido da Fabrica Avariado',
+                'Danificado no manuseio',
+                'Palete com pregos',
+                'Pega da Garra incorreta',
+                'Armazenagem incorreta',
+                'Outro motivo'
+            ],
+            datasets: [{
+                data: [
+                motivos.tempo || 0,
+                motivos.empilhadeira || 0,
+                motivos.empilhadeira_guizilim || 0,
+                motivos.manuseio_ajudante || 0,
+                motivos.estoque_avariado || 0,
+                motivos.fabrica_avariada || 0,
+                motivos.manuseio || 0,
+                motivos.palete_pregos || 0,
+                motivos.garra_incorreta || 0,
+                motivos.armazenagem_incorreta || 0,
+                motivos.outro || 0
+                ],
+                backgroundColor: [
+                '#4361ee',
+                '#3f37c9',
+                '#4895ef',
+                '#4cc9f0',
+                '#f72585',
+                '#b5179e',
+                '#7209b7',
+                '#560bad',
+                '#480ca8',
+                '#3a0ca3',
+                '#4361ee'
+                ],
+                borderWidth: 1
+            }]
             },
             options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
+            responsive: true,
+            plugins: {
+                legend: {
+                position: 'bottom'
                 }
+            }
             }
         });
     }
@@ -969,31 +1007,74 @@
             adicionados: 0,
             avarias: 0,
             retrabalhos: 0,
+            custoAvarias: 0,
+            economiaRetrabalho: 0,
+            perdasDefinitivas: 0,
+            custoPerdasDefinitivas: 0,
             tipos: {
-                madeirite: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                chapatex: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                palete: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                slip_sheet: { adicionados: 0, avarias: 0, retrabalhos: 0 }
+            madeirite: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            },
+            chapatex: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            },
+            palete: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            },
+            slip_sheet: { 
+                adicionados: 0, 
+                avarias: 0, 
+                retrabalhos: 0,
+                custoAvarias: 0,
+                economiaRetrabalho: 0,
+                perdasDefinitivas: 0,
+                custoPerdasDefinitivas: 0
+            }
             },
             motivos: {
-                tempo: 0,
-                empilhadeira: 0,
-                manuseio: 0,
-                outro: 0
+            tempo: 0,
+            empilhadeira: 0,
+            empilhadeira_guizilim: 0,
+            manuseio_ajudante: 0,
+            estoque_avariado: 0,
+            fabrica_avariada: 0,
+            manuseio: 0,
+            palete_pregos: 0,
+            garra_incorreta: 0,
+            armazenagem_incorreta: 0,
+            outro: 0
             },
             turnos: {
-                A: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                B: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                C: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                D: { adicionados: 0, avarias: 0, retrabalhos: 0 },
-                E: { adicionados: 0, avarias: 0, retrabalhos: 0 }
+            A: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            B: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            C: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            D: { adicionados: 0, avarias: 0, retrabalhos: 0 },
+            E: { adicionados: 0, avarias: 0, retrabalhos: 0 }
             },
             dailyData: {
-                [new Date().toLocaleDateString('pt-BR')]: {
-                    adicionados: 0,
-                    avarias: 0,
-                    retrabalhos: 0
-                }
+            [new Date().toLocaleDateString('pt-BR')]: {
+                adicionados: 0,
+                avarias: 0,
+                retrabalhos: 0
+            }
             }
         };
         
